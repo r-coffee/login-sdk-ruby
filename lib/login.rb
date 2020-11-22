@@ -1,4 +1,4 @@
-require_relative './models_pb.rb'
+require './models_pb'
 require 'httparty'
 
 class LoginClient
