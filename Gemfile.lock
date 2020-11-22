@@ -1,7 +1,7 @@
 GEM
   remote: https://rubygems.org/
   specs:
-    google-protobuf (3.14.0)
+    google-protobuf (4.0.0.rc.2)
     httparty (0.13.7)
       json (~> 1.8)
       multi_xml (>= 0.5.2)
@@ -12,7 +12,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  google-protobuf (~> 3.13)
+  google-protobuf (~> 4.0.0.rc.2)
   httparty (~> 0.13.7)
 
 RUBY VERSION
