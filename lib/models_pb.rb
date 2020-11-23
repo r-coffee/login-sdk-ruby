@@ -3,38 +3,43 @@
 
 require 'google/protobuf'
 
+@@models_loaded = false
+
 Google::Protobuf::DescriptorPool.generated_pool.build do
-  add_file("models.proto", :syntax => :proto3) do
-    add_message "main.RegisterRequest" do
-      optional :entityID, :string, 1
-      optional :id, :string, 2
-      optional :password, :string, 3
+  if @@models_loaded == false
+    add_file("models.proto", :syntax => :proto3) do
+      add_message "main.RegisterRequest" do
+        optional :entityID, :string, 1
+        optional :id, :string, 2
+        optional :password, :string, 3
+      end
+      add_message "main.GenericResponse" do
+        optional :error, :string, 1
+      end
+      add_message "main.LoginRequest" do
+        optional :entityID, :string, 1
+        optional :id, :string, 2
+        optional :password, :string, 3
+      end
+      add_message "main.LoginResponse" do
+        optional :error, :string, 1
+        optional :token, :string, 2
+        optional :admin, :bool, 3
+      end
+      add_message "main.ValidateRequest" do
+        optional :entityID, :string, 1
+        optional :token, :string, 2
+      end
+      add_message "main.ValidateResponse" do
+        optional :error, :string, 1
+        optional :id, :string, 2
+        optional :admin, :bool, 3
+      end
+      add_message "main.GenericRequest" do
+        optional :userID, :string, 1
+      end
     end
-    add_message "main.GenericResponse" do
-      optional :error, :string, 1
-    end
-    add_message "main.LoginRequest" do
-      optional :entityID, :string, 1
-      optional :id, :string, 2
-      optional :password, :string, 3
-    end
-    add_message "main.LoginResponse" do
-      optional :error, :string, 1
-      optional :token, :string, 2
-      optional :admin, :bool, 3
-    end
-    add_message "main.ValidateRequest" do
-      optional :entityID, :string, 1
-      optional :token, :string, 2
-    end
-    add_message "main.ValidateResponse" do
-      optional :error, :string, 1
-      optional :id, :string, 2
-      optional :admin, :bool, 3
-    end
-    add_message "main.GenericRequest" do
-      optional :userID, :string, 1
-    end
+    @@models_loaded = true
   end
 end
 
