@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name        = 'login'
-  s.version     = '1.0.6'
+  s.version     = '1.0.7'
   s.date        = '2020-11-22'
   s.summary     = 'Login Client SDK'
   s.description = 'SDK to interface with login service'
